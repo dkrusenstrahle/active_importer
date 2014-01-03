@@ -223,7 +223,7 @@ module ActiveImporter
       begin
         @model = fetch_model
         build_model
-        model.account_id = @account_id
+        model.account_id = 456
         model.save! unless aborted?
       rescue => e
         @row_errors << { row_index: row_index, error_message: e.message }
