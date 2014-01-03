@@ -224,6 +224,8 @@ module ActiveImporter
         @model = fetch_model
         build_model
         model.account_id = 123
+        model.description = "TESTSTREET1"
+        @model.description = "TESTSTREET2"
         model.save! unless aborted?
       rescue => e
         @row_errors << { row_index: row_index, error_message: e.message }
@@ -237,7 +239,6 @@ module ActiveImporter
     end
 
     def build_model
-      model.send("account_id=", 123)
       row.each_pair do |key, value|
         column_def = columns[key]
         next if column_def.nil? || column_def[:field_name].nil?
