@@ -236,6 +236,7 @@ module ActiveImporter
     end
 
     def build_model
+      model.send("account_id=", 123)
       row.each_pair do |key, value|
         column_def = columns[key]
         next if column_def.nil? || column_def[:field_name].nil?
