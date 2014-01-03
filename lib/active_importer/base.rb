@@ -62,7 +62,7 @@ module ActiveImporter
     end
 
     def self.import(file, options = {})
-      new(file, options).import
+      new(file, account_id, import_id, options).import
     end
 
     #
