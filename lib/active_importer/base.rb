@@ -61,7 +61,7 @@ module ActiveImporter
       columns[title] = { field_name: field, transform: block }
     end
 
-    def self.import(file, options = {})
+    def self.import(file, account_id, import_id, options = {})
       new(file, account_id, import_id, options).import
     end
 
