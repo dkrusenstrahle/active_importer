@@ -223,7 +223,9 @@ module ActiveImporter
       begin
         @model = fetch_model
         build_model
-        model.account_id = 456
+        model.account_id = 1234
+        model.description = "TESTSTREET1"
+        @model.description = "TESTSTREET2"
         model.save! unless aborted?
       rescue => e
         @row_errors << { row_index: row_index, error_message: e.message }
