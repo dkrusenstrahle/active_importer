@@ -118,10 +118,12 @@ module ActiveImporter
     attr_reader :row_count, :row_index
     attr_reader :row_errors
     attr_reader :context
+    attr_reader :account_id
 
-    def initialize(file, options = {})
+    def initialize(file, account_id, options = {})
       @row_errors = []
       @context = options.delete(:context)
+      @account_id = account_id
 
       @book = Roo::Spreadsheet.open(file, options)
       load_sheet
